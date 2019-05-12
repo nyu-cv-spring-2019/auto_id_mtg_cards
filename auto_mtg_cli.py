@@ -1,8 +1,5 @@
-import os
 import operator
-from collections import OrderedDict
 
-import cv2
 import fire
 
 from core.background_subtract import find_card
@@ -24,20 +21,6 @@ def run_set_compare(path_to_original_image, remake_set_images=True, use_cv2_cros
     print(sorted(cross_correlate_dict.items(), key=lambda x: x[1], reverse=True))
     print("The matching set is {} and the score was {}".format(max_tuple[0], max_tuple[1]))
     return max_tuple[0].split('.')[0]
-
-# def run_set_compare_2(path_to_original_image, remake_set_images=True, use_cv2_cross_corr=False):
-#     if remake_set_images:
-#         make_set_image_each_set()
-#     pre_process = PreprocessorImg(path_to_original_image)
-#     crop_set_image = pre_process.mtg_thres_set_image
-#     thresh_all_set_templates(crop_set_image.shape)
-#     cross_correlate_dict = cross_correlate_all_set_images(crop_set_image, use_cv2_cross_corr=use_cv2_cross_corr)
-#     max_tuple = max(cross_correlate_dict.items(), key=operator.itemgetter(1))
-#     if max_tuple[1] < 0:
-#
-#     print(sorted(cross_correlate_dict.items(), key=lambda x: x[1], reverse=True))
-#     print("The matching set is {} and the score was {}".format(max_tuple[0], max_tuple[1]))
-#     return max_tuple[0].split('.')[0]
 
 
 def run_card_compare(path_to_original_image, use_cv2_cross_corr=False, set_code=None):

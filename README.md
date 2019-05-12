@@ -1,7 +1,7 @@
 # auto_id_mtg_cards
 This software will automatically identify magic the gathering playing cards after taking a photo of them.
 
-## Setup
+## Setup:
 1) clone repo:
 ```
 git clone https://github.com/mrpoor/auto_id_mtg_cards.git
@@ -15,7 +15,7 @@ cd auto_id_mtg_cards
 python -m pip install -r requirements.txt
 ```
 
-## Usage
+## Usage:
 There are 3 commands you can run. See help if you need more info:
 ```
 python auto_mtg_cli.py --help
@@ -46,6 +46,11 @@ This command gives a confusion matrix:
 python auto_mtg_cli.py run-confusion-matrix
 ```
 
+## Provided test images:
+For convenience we provided some test images so to run a set compare:
+```
+python auto_mtg_cli.py run-set-compare mtg_test_photos/mtg_rna.jpg
+```
 
-## Contributing
+## Contributing:
 Fork repo and make a pull request!

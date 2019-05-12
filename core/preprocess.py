@@ -53,9 +53,13 @@ class PreprocessorImg:
         https://scryfall.com/docs/api/images
         :return:
         """
-        list_of_croppings_to_try = [(530, 568, 560, 618)]
-        resized_mtg_card = cv2.resize(self.mtg_just_card_grayscale, (672, 936))
-        crop_set_img = resized_mtg_card[530:568, 560:618]
-        self.mtg_greyscale_set_image = crop_set_img
+        resized_mtg_card = cv2.resize(self.mtg_just_card_grayscale, (2000, 1500))
+        crop_set_img = resized_mtg_card[860:910, 1640:1820]
         thes, thresh_crop_set_img = cv2.threshold(crop_set_img, 20, 255, cv2.THRESH_OTSU)
-        return thresh_crop_set_img
+        new_thresh_crop_set_img = Util.flip_threshold_values(thresh_crop_set_img)
+        bbox = cv2.boundingRect(new_thresh_crop_set_img)
+        x, y, w, h = bbox
+        self.mtg_greyscale_set_image = crop_set_img[y:y + h, x:x + w]
+        adjusted_thresh_crop_set_img = thresh_crop_set_img[y:y + h, x:x + w]
+        finished_thresh_crop_set_img = Util.flip_threshold_values(adjusted_thresh_crop_set_img)
+        return finished_thresh_crop_set_img
