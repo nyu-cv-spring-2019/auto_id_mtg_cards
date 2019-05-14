@@ -10,7 +10,11 @@ git clone https://github.com/nyu-cv-spring-2019/auto_id_mtg_cards.git
 ```
 cd auto_id_mtg_cards
 ```
-3) install all the dependencies:
+3) update setuptools
+```
+python -m pip install setuptools --upgrade --ignore-installed
+```
+4) install all the dependencies:
 ```
 python -m pip install -r requirements.txt
 ```
