@@ -4,7 +4,7 @@ This software will automatically identify magic the gathering playing cards afte
 ## Setup:
 1) clone repo:
 ```
-git clone https://github.com/mrpoor/auto_id_mtg_cards.git
+git clone https://github.com/nyu-cv-spring-2019/auto_id_mtg_cards.git
 ```
 2) go into repo:
 ```
